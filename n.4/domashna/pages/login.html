@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <link rel="stylesheet" href="../styles/app.css">
+</head>
+
+<body>
+
+    <section id="loginForm">
+        <div class="formImg">
+            <img src="../assets/plants.jpeg" alt="Plants">
+        </div>
+
+        <div class="formContent">
+            <div class="formBx">
+                <h2>Login</h2>
+                <form action="login.php" method="post">
+                    <div class="formInput">
+                        <label class="login_label_style" for="username">Username</label>
+                        <input class="login_input_style" type="text" name="username">
+                    </div>
+                    <div class="formInput">
+                        <label class="login_label_style" for="password">Password</label>
+                        <input class="login_input_style" type="password" name="password">
+                    </div>
+                    <div class="remember">
+                        <input type="checkbox" name="remember" id="remember"> 
+                        <label class="login_remember_label" for="remember">Remember me</label>
+                    </div>
+                    <div class="formInput">
+                        <input class="btn_submit login_input_style" type="submit" value="Sign in">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+</body>
+
+</html>

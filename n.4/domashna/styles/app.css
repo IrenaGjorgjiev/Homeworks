@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+p {
+    font-weight: 300;
+    color: #111;
+}
+
+body {
+    background: rgb(241 241 243);
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/header_background.jpg');
+    background-size: cover;
+}
+
+.banner .content {
+    max-height: 900px;
+    text-align: center;
+}
+
+.banner .content h2 {
+    font-size: 5em;
+    color: rgb(254 241 234);
+}
+
+.banner .content p {
+    font-size: 1em;
+    color: rgb(254 241 234);
+}
+
+.btn {
+    font-size: 1em;
+    color: rgb(254 241 234);
+    background: rgb(29 142 67);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    letter-spacing: 4px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+header.sticky {
+    background: rgb(241 241 243);
+    padding: 10px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+header .logo {
+    color: rgb(254 241 234);
+    font-weight: 700;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+header.sticky .logo {
+    color: #111;
+}
+
+header .logo span {
+    color: rgb(49 199 88);
+}
+
+header .navigation {
+    display: flex;
+    position: relative;
+}
+
+header .navigation li {
+    list-style: none;
+    margin-left: 30px;
+}
+
+header .navigation li a {
+    text-decoration: none;
+    color: rgb(254 241 234);
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+header.sticky .navigation li a {
+    color: #111;
+}
+
+header .navigation li a:hover {
+    color: rgb(49 199 88);
+}
+
+/* -----About----- */
+
+section {
+    padding: 100px;
+}
+
+.row {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.row .col50 {
+    position: relative;
+    width: 48%;
+}
+
+.titleText {
+    color: #111;
+    font-size: 2em;
+    font-weight: 300;
+}
+
+.titleText span {
+    color: rgb(49 199 88);
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.row .col50 .imgBx {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.row .col50 .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* -----Offers----- */
+
+.offers {
+    background: url('../assets/offers_background.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    padding: 100px 100px 0;
+}
+
+.white .titleText, .white p {
+    color: #fff;
+}
+
+.offers .content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 60px;
+}
+
+.offers .card {
+    position: relative;
+    max-width: 420px;
+    height: 260px;
+    margin: 30px 10px;
+    padding: 13px 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(254, 241, 234, 0.8);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    border-radius: 4px;
+}
+
+.offers .card:hover {
+    height: 410px;
+}
+
+.offers .card .imgBx {
+    position: relative;
+    width: 384px;
+    height: 260px;
+    top: -60px;
+    z-index: 1;
+}
+
+.offers .card .imgBx img {
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+.offers .card .text {
+    position: relative;
+    margin-top: -70px;
+    padding: 10px 15px;
+    text-align: center;
+    color: #111;
+    overflow: hidden; 
+}
+
+.offers .card .text h2 {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #111;
+}
+
+.offers .card .text .cardContent {
+    visibility: hiddentext;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.offers .card:hover .text .cardContent {
+    visibility: visible;
+    opacity: 1;
+}
+
+.offers .card .text .cardContent li {
+    list-style-type: none;
+}
+
+.offers .card .text .cardContent a {
+    text-decoration: none;
+    color: #111 ;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+.offers .card .text .cardContent a:hover {
+    color: rgb(49 199 88);
+}
+
+
+/* -----Contact----- */
+
+.contact {
+    background: url('../assets/contact_background.jpg');
+    background-size: cover;
+}
+
+.contactForm {
+    padding: 75px 50px;
+    background: rgba(241, 241, 243, 0.1);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    margin-top: 50px;
+}
+
+.contactForm h3 {
+    color: #111;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.contactForm .inputBox {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.contactForm .inputBox input,
+.contactForm .inputBox textarea {
+    width: 100%;
+    border: 1px solid #555;
+    padding: 10px;
+    color: #111;
+    outline: none;
+    font-size: 16px;
+    font-weight: 300;
+    resize: none;
+}
+
+.contactForm .inputBox input[type='submit'] {
+    font-size: 1em;
+    color: #fff;
+    background: rgb(29 142 67);
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    max-width: 100px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+
+.contactForm .inputBox input[type='submit']:hover {
+    background: rgb(49, 199, 88);
+}
+
+
+
+@media (max-width: 991px) {
+    header,
+    header.sticky {
+        padding: 10px 20px;
+    }
+    header .navigation {
+        display: none;
+    }
+
+    header .navigation.active {
+        width: 100%;
+        height: calc(100% - 68px);
+        position: fixed;
+        top: 68px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: rgb(241 241 243);
+    }
+
+    header .navigation li {
+        margin-left: 0;
+    }
+
+    header .navigation li a {
+        color: #111;
+        font-size: 1.6em;
+        line-height: 4em;
+    }
+
+    .menuToggle {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        background: url('../menu_white.png');
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+    }
+    .menuToggle.active {
+        background: url('../close_white.png');
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    header.sticky .menuToggle {
+        filter: invert(1);
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    .banner .content h2 {
+        font-size: 3em;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+    
+    .row .col50 {
+        position: relative;
+        width: 100%;
+    }
+    
+    .row .col50 .imgBx {
+        height: 300px;
+        margin-top: 20px;
+    }
+
+    .offers {
+        background: url('../assets/shore.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .offers .card .imgBx {
+        width: 350px;
+        height: 240px;
+    }
+
+    .offers .card {
+        max-width: 380px;
+        height: 235px;
+    }
+
+    .offers .card:hover {
+        height: 390px;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .titleText {
+        font-size: 1.8em;
+        line-height: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .contactForm {
+        padding: 35px 40px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner .content h2 {
+        font-size: 2.2em;
+    }
+}
+
+
+
+/* -----Admin Login Form----- */
+
+#loginForm {
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+#loginForm .formImg {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+#loginForm .formImg:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0.15turn, #255063, #8d8e8c, #945715);
+    z-index: 1;
+    mix-blend-mode: screen;
+}
+
+#loginForm .formImg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#loginForm .formContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+#loginForm .formContent .formBx {
+    width: 50%;
+}
+
+#loginForm .formContent .formBx h2 {
+    color: #756b5f;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #255063;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+#loginForm .formContent .formBx .formInput {
+    margin-bottom: 20px;
+}
+
+.login_label_style {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #9f8e6a;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.login_input_style {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid #9f8e6a;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #9f8e6a;
+    background: transparent;
+    border-radius: 30px;
+}
+
+.btn_submit {
+    background-color: #255063;
+    color: white;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+}
+
+.btn_submit:hover {
+    background-color: #1b3a48;
+    transition: 0.15s ease-in-out;
+    color: white;
+}
+
+.login_remember_label {
+    margin-bottom: 10px;
+    color: #9f8e6a;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    #loginForm .formImg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #loginForm .formContent {
+        width: 100%;
+        z-index: 1;
+    }
+
+    #loginForm .formContent .formBx {
+        width: 100%;
+        padding: 50px;
+        margin: 50px;
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+/* ---------------------------------------- */

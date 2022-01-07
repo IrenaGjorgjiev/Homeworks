@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 150vh;
+    background-color: white;
+}
+
+
+header .logo {
+    color: #4b5907;
+}
+
+header .navigation li a {
+    color: #4b5907;
+}
+
+#tripsPg {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('../assets/trips_background.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: circle(180vh at 50% -80vh);
+}
+
+#tripsPg .tripsLanPg {
+    max-width: 1000px;
+    text-align: center;
+}
+
+#tripsPg .tripsLanPg h2 {
+    font-size: 5em;
+    color: #4b5907;
+    font-weight: 700;
+}
+
+#tripsPg .tripsLanPg .btn {
+    background-color: #fc4d01;
+}
+
+.destinations {
+    height: 100vh;
+}
+
+.destinations .dstMap #map {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+}
+
+.destinations .title .titleText span {
+    color: #fc4d01;
+}
+
+.destinations .title p {
+    padding: 20px;
+}
+
+.destinations .dstMap .resetBtn {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.destinations .dstMap .resetBtn:hover {
+    color: green;
+}
+
+
+
+
+
+
+@media (max-width: 991px) {
+.menuToggle {
+    filter: drop-shadow(2px 4px 6px black);
+}
+#tripsPg .tripsLanPg h2 {
+    font-size: 3em;
+}
+}
+
+@media (max-width: 480px) {
+    #tripsPg .tripsLanPg h2 {
+        font-size: 2.2em;
+    }
+}
+
