@@ -1,16 +1,16 @@
 // ---Part One---
 
-// let arr = [22, "Irena", undefined, true, [1, 2, 3]];
+let arr = [22, "Irena", undefined, true, [1, 2, 3]];
 
 
-// function findValue(param) {
-//     for (let i = 0; i < param.length; i++) {
-//         console.log(typeof param[i]);
-//     }
-//     return;
-// }
+function findValue(param) {
+    for (let i = 0; i < param.length; i++) {
+        console.log(typeof param[i]);
+    }
+    return;
+}
 
-// console.log(findValue(arr));
+console.log(findValue(arr));
 
 
 // ---Part Twe---
@@ -37,17 +37,17 @@
 
 // ---Part Three---
 
-let currStatus = 10000;
-let ammount = Number(prompt("Enter the ammount of money you would like to take out"));
+// let currStatus = 10000;
+// let ammount = Number(prompt("Enter the ammount of money you would like to take out"));
 
-function atmMachine(status, withdrawal) {
-    if (withdrawal < status) {
-        status -= withdrawal;
-        return alert(`You ammount was ${ammount}. You have ${status}den left on you bank account.`)
-    } else if (withdrawal > status) {
-        return alert("Not Enough Money.")
-    }
-}
+// function atmMachine(status, withdrawal) {
+//     if (withdrawal < status) {
+//         status -= withdrawal;
+//         return alert(`You ammount was ${ammount}. You have ${status}den left on you bank account.`)
+//     } else if (withdrawal > status) {
+//         return alert("Not Enough Money.")
+//     }
+// }
 
-atmMachine(currStatus, ammount);
+// atmMachine(currStatus, ammount);
 
