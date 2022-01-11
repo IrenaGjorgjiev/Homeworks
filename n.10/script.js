@@ -43,4 +43,4 @@ function numberValidator(value) {
     return true;
 }
 
-validateNumber(numbers);
+console.log(sumOfArray(numbers));
