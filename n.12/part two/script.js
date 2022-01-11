@@ -31,3 +31,19 @@ function printSum(arr) {
 }
 
 printSum(numbers);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

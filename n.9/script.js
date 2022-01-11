@@ -1,19 +1,19 @@
 // ---Part One---
 
-let arr = [22, "Irena", undefined, true, [1, 2, 3]];
+// let arr = [22, "Irena", undefined, true, [1, 2, 3]];
 
 
-function findValue(param) {
-    for (let i = 0; i < param.length; i++) {
-        console.log(typeof param[i]);
-    }
-    return;
-}
+// function findValue(param) {
+//     for (let i = 0; i < param.length; i++) {
+//         console.log(typeof param[i]);
+//     }
+//     return;
+// }
 
-console.log(findValue(arr));
+// console.log(findValue(arr));
 
 
-// ---Part Twe---
+// ---Part Two---
 
 // let hoomanAge = 1;
 // let doggoAge = 7;
@@ -22,13 +22,13 @@ console.log(findValue(arr));
 // let ageInput = prompt("Enter the age you would like to convert");
 
 
-// function calculateAge(hooman, doggo, firstInput, number) {
-//     if (userInput === "dog") {
-//         doggoAge = ageInput * 7;
-//         return alert(`Your dogs age is ${doggoAge}`);
-//     } else if (userInput === "human") {
-//         hoomanAge = ageInput / 7;
-//         return alert(`Your human age is ${hoomanAge}`)
+// function calculateAge(hooman, doggo, firstInput, age) {
+//     if (firstInput === "dog") {
+//         doggo = age * 7;
+//         return alert(`Your dogs age is ${doggo}`);
+//     } else if (firstInput === "human") {
+//         hooman = age / 7;
+//         return alert(`Your human age is ${hooman}`)
 //     }
 // }
 
