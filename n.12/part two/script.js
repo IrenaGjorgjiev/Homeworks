@@ -8,7 +8,7 @@ function createList(nums) {
     for (let num of nums) {
         let li = document.createElement('li');
         li.innerText = num;
-        container.append(li);
+        ul.append(li);
     }
 }
 
