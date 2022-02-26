@@ -1,0 +1,31 @@
+body {
+    background-image: url(./images/background.jpg);
+    background-size: contain;
+    background-position: center;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    max-width: 250px;
+}
+
+#personBtn,
+#rocketBtn  {
+    height: 200px;
+    width: 200px;
+    filter: invert();
+    margin: 40px;
+    cursor: pointer;
+}
+
+#personBtn:hover,
+#rocketBtn:hover {
+    opacity: 0.7;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    color: #fff700;
+}
