@@ -9,7 +9,7 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    max-width: 250px;
+    max-width: 500px;
 }
 
 #personBtn,
@@ -28,4 +28,13 @@ body {
 
 tbody, td, tfoot, th, thead, tr {
     color: #fff700;
+}
+
+.btn_wrap {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin: 10px;
 }

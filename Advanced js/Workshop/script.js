@@ -4,6 +4,9 @@ let personSection = document.querySelector('.person_section');
 let rocketSection = document.querySelector('.ship_section');
 let startSection = document.querySelector('.start_section');
 let ships = [];
+let backBtn = document.querySelector('#back');
+let prevBtn = document.querySelector('#previous');
+let nextBtn = document.querySelector('#next');
 
 class ShipDetails {
     constructor(cost, cargoCapacity, peopleCapacity, shipClass) {
