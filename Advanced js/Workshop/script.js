@@ -1,88 +1,141 @@
 let personBtn = document.querySelector('#personBtn');
-let rocketBtn = document.querySelector('#rocketBtn');
-let personSection = document.querySelector('.person_section');
-let rocketSection = document.querySelector('.ship_section');
+let shipBtn = document.querySelector('#shipBtn');
 let startSection = document.querySelector('.start_section');
-let ships = [];
+let tableSection = document.querySelector('.table_section');
 let backBtn = document.querySelector('#back');
-let prevBtn = document.querySelector('#previous');
 let nextBtn = document.querySelector('#next');
+let previousBtn = document.querySelector('#previous');
 
-class ShipDetails {
-    constructor(cost, cargoCapacity, peopleCapacity, shipClass) {
-        this.cost = cost;
-        this.cargoCapacity = cargoCapacity;
-        this.peopleCapacity = peopleCapacity;
-        this.shipClass = shipClass;
-    }
-}
+let tableHead = document.querySelector('#tableHead');
+let tableBody = document.querySelector('#tableBody');
 
-class Ship extends ShipDetails {
-    constructor(name, model, manufacturer, cost, cargoCapacity, peopleCapacity, shipClass) {
-        super(cost, cargoCapacity, peopleCapacity, shipClass);
-        this.name = name;
-        this.model = model;
-        this.manufacturer = manufacturer;
-    }
+const memory = {
+    url: 'https://swapi.dev/api/',
+    people: 'https://swapi.dev/api/people',
+    ships: 'https://swapi.dev/api/starships',
+    peopleTableArr: ['Name', 'Height', 'Mass', 'Gender', 'Birth Year', 'Homeworld', 'Movie Appearances'],
+    shipTableArr: ['Name', 'Model', 'Manufacturer'],
+    contextTypes: {
+        people: 'people',
+        ships: 'ships'
+    },
+    collection: null,
+    context: null
 }
 
 async function fetchData(url) {
     let call = await fetch(url);
     let dataJson = await call.json();
+    memory.collection = dataJson;
+    console.log(dataJson)
     return dataJson;
 }
 
+async function generateTable(url, thContext, context) {
+    memory.collection = await fetchData(url);
+    tableHead.append(generateTableHead(thContext));
+    generateTableBody(memory.collection.results, context, tableBody);
+
+}
+
+function generateTableHead(tHeadContent) {
+    let row = document.createElement('tr');
+    tHeadContent.forEach(element => {
+        let th = document.createElement('th');
+        th.setAttribute('scope', 'col');
+        th.innerText = element;
+        row.append(th);
+    });
+    return row;
+}
+
+function generateTableBody(tBodyContent, context, body) {
+    tBodyContent.forEach(element => {
+        if (context === memory.contextTypes.people) {
+            body.append(humanTable(element));
+        } else if (context === memory.contextTypes.ships) {
+            body.append(shipTable(element));
+        }
+    })
+}
+
+function humanTable(person) {
+    let row = document.createElement('tr');
+    let name = document.createElement('td');
+    let height = document.createElement('td');
+    let mass = document.createElement('td');
+    let gender = document.createElement('td');
+    let year = document.createElement('td');
+    let homeworld = document.createElement('td');
+    let films = document.createElement('td');
+    name.innerText = person.name;
+    height.innerText = person.height;
+    mass.innerText = person.mass;
+    gender.innerText = person.gender;
+    year.innerText = person.birth_year;
+    homeworld.innerText = person.homeworld;
+    films.innerText = person.films.length;
+    row.append(name, height, mass, gender, year, homeworld, films);
+    return row;
+}
+
+function shipTable(ship) {
+    let row = document.createElement('tr');
+    let name = document.createElement('td');
+    let model = document.createElement('td');
+    let manufacturer = document.createElement('td');
+    name.innerText = ship.name;
+    model.innerText = ship.model;
+    manufacturer.innerText = ship.manufacturer;
+    row.append(name, model, manufacturer);
+    return row;
+}
+
+function toggleSections() {
+    startSection.toggleAttribute('hidden');
+    tableSection.toggleAttribute('hidden');
+}
+
+function resetTable() {
+    tableHead.innerHTML = '';
+    tableBody.innerHTML = '';
+}
+
+backBtn.addEventListener('click', function () {
+    toggleSections();
+    resetTable();
+});
+
 personBtn.addEventListener('click', function () {
-    startSection.toggleAttribute('hidden');
-    personSection.toggleAttribute('hidden');
-
-    fetchData('https://swapi.dev/api/people')
-        .then(data => {
-            console.log(data);
-            let tbody = document.querySelector('#person_b');
-            let html = '';
-            data.results.forEach(element => {
-                html += `  
-            <tr>
-                <td>${element.name}</td>
-                <td>${element.height}</td>
-                <td>${element.mass}</td>
-                <td>${element.gender}</td>
-                <td>${element.birth_year}</td>
-                <td>${element.homeworld}</td>
-                <td>${element.films.length}</td>
-            </tr>`
-            });
-            tbody.innerHTML = html
-        });
+    toggleSections();
+    memory.context = memory.contextTypes.people;
+    generateTable(memory.people, memory.peopleTableArr, memory.context);
 })
 
-rocketBtn.addEventListener('click', function () {
-    startSection.toggleAttribute('hidden');
-    rocketSection.toggleAttribute('hidden');
-
-    fetchData('https://swapi.dev/api/starships')
-        .then(data => {
-            console.log(data);
-            let tbody = document.querySelector('#ship_b');
-            data.results.forEach(element => {
-                let ship = new Ship(element.name, element.model, element.manufacturer, element.cost_in_credits, element.cargo_capacity, element.passengers, element.starship_class);
-                ships.push(ship);
-                let row = document.createElement('tr');
-                let nameTd = document.createElement('td');
-                let modelTd = document.createElement('td');
-                let manufacturerTd = document.createElement('td');
-                let detailsTd = document.createElement('td');
-
-                nameTd.innerText = ship.name;
-                modelTd.innerText = ship.model;
-                manufacturerTd.innerText = ship.manufacturer;
-                detailsTd.innerText = 'Details';
-
-                row.append(nameTd, modelTd, manufacturerTd, detailsTd);
-                tbody.append(row);
-            });
-            console.log(ships);
-        });
+shipBtn.addEventListener('click', function () {
+    toggleSections();
+    memory.context = memory.contextTypes.ships;
+    generateTable(memory.ships, memory.shipTableArr, memory.context);
 })
 
+nextBtn.addEventListener('click', function () {
+    if (memory.collection.next) {
+        resetTable();
+        if (memory.context === memory.contextTypes.people) {
+            generateTable(memory.collection.next, memory.peopleTableArr, memory.context);
+        } else if (memory.context === memory.contextTypes.ships) {
+            generateTable(memory.collection.next, memory.shipTableArr, memory.context);
+        }
+    }
+})
+
+previousBtn.addEventListener('click', function () {
+    if (memory.collection.previous) {
+        resetTable();
+        if (memory.context === memory.contextTypes.people) {
+            generateTable(memory.collection.previous, memory.peopleTableArr, memory.context);
+        } else if (memory.context === memory.contextTypes.ships) {
+            generateTable(memory.collection.previous, memory.shipTableArr, memory.context);
+        }
+    }
+})

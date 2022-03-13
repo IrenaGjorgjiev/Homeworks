@@ -18,56 +18,12 @@
       <div class="row">
         <div class="col-lg-6 d-flex">
           <img src="./images/kenobi.png" alt="Person Icon" id="personBtn">
-          <img src="./images/naboo.png" alt="Ship Icon" id="rocketBtn">
+          <img src="./images/naboo.png" alt="Ship Icon" id="shipBtn">
         </div>
       </div>
     </div>
   </section>
-
-  <section class="person_section" hidden>
-    <div class="container">
-      <h2 class="text-center">People</h2>
-      <div class="person_table_wrapper my-5">
-        <table class="table person_table">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Height</th>
-              <th scope="col">Mass</th>
-              <th scope="col">Gender</th>
-              <th scope="col">Birth Year</th>
-              <th scope="col">Homeworld</th>
-              <th scope="col">Movie Appearances</th>
-            </tr>
-          </thead>
-          <tbody id="person_b">
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="ship_section" hidden>
-    <div class="container">
-      <h2 class="text-center">Star Ships</h2>
-      <div class="ship_table_wrapper my-5">
-        <table class="table ship_table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Model</th>
-              <th scope="col">Manufacturer</th>
-            </tr>
-          </thead>
-          <tbody id="ship_b">
-
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
+  <!-- 
   <section class="ship_details" hidden>
     <h2 class="text-center">Star Ship Details</h2>
     <div class="container">
@@ -83,17 +39,25 @@
             </tr>
           </thead>
           <tbody class="ship_details_b">
-
           </tbody>
         </table>
       </div>
     </div>
+  </section> -->
+
+  <section class="table_section" hidden>
+    <div class="container">
+      <table class="table">
+        <thead id="tableHead"></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+    <div class="btn_wrap">
+      <button id="back" class="btn btn-outline-light">Back</button>
+      <button id="previous" class="btn btn-outline-light">Previous</button>
+      <button id="next" class="btn btn-outline-light">Next</button>
+    </div>
   </section>
-  <div class="btn_wrap">
-    <button id="back" class="btn btn-outline-light">Back</button>
-    <button id="previous" class="btn btn-outline-light">Previous</button>
-    <button id="next" class="btn btn-outline-light">Next</button>
-  </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
