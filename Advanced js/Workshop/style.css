@@ -1,6 +1,6 @@
 body {
     background-image: url(./images/background.jpg);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     position: relative;
 }
@@ -9,7 +9,7 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    max-width: 500px;
+    max-width: 240px;
 }
 
 #personBtn,
@@ -29,6 +29,14 @@ tbody, td, tfoot, th, thead, tr {
     color: #fff700;
 }
 
+tr {
+    cursor: pointer;
+}
+ 
+tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .btn_wrap {
     display: flex;
     justify-content: center;
@@ -36,4 +44,39 @@ tbody, td, tfoot, th, thead, tr {
 
 button {
     margin: 10px;
+}
+
+.details {
+    color: white;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid white;
+}
+ 
+.details_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 20px;
+}
+ 
+.details_wrapper p {
+    width: 50%;
+}
+ 
+ul {
+    padding: 0;
+    list-style: none;
+    width: 50%;
+}
+ 
+li {
+    padding-left: 30px;
+}
+ 
+small {
+    color: #fff700;
+    margin-right: 10px;
 }

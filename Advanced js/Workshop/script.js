@@ -5,6 +5,7 @@ let tableSection = document.querySelector('.table_section');
 let backBtn = document.querySelector('#back');
 let nextBtn = document.querySelector('#next');
 let previousBtn = document.querySelector('#previous');
+let details = document.querySelector('.details')
 
 let tableHead = document.querySelector('#tableHead');
 let tableBody = document.querySelector('#tableBody');
@@ -21,6 +22,27 @@ const memory = {
     },
     collection: null,
     context: null
+}
+
+const translation = {
+    "name": 'Name',
+    "model": 'Model',
+    "manufacturer": 'Manufacturer',
+    "cost_in_credits": 'Cost in Credits',
+    "length": 'Length',
+    "max_atmosphering_speed": 'Max Atmosphering Speed',
+    "crew": 'Crew',
+    "passengers": 'Passengers',
+    "cargo_capacity": 'Cargo Capacity',
+    "consumables": 'Consumables',
+    "hyperdrive_rating": 'Hyperdrive Rating',
+    "MGLT": 'MGLT',
+    "starship_class": 'Starship Class',
+    "pilots": 'Pilots',
+    "films": 'Films',
+    "created": 'Created',
+    "edited": 'Edited',
+    "url": 'Url',
 }
 
 async function fetchData(url) {
@@ -88,7 +110,39 @@ function shipTable(ship) {
     model.innerText = ship.model;
     manufacturer.innerText = ship.manufacturer;
     row.append(name, model, manufacturer);
+    row.addEventListener('click', function () {
+        details.innerHTML = '';
+        details.append(generateDetails(ship));
+
+    })
     return row;
+}
+
+function generateDetails(object) {
+    let wrapper = document.createElement('div');
+    wrapper.classList.add('details_wrapper')
+    for (const key in object) {
+        let value = object[key];
+        let small = document.createElement('small');
+        console.log(small)
+        small.innerText = `${translation[key]}: `;
+        if (typeof value === 'object') {
+            let list = document.createElement('ul');
+            list.append(small);
+            value.forEach(item => {
+                let li = document.createElement('li');
+                li.innerText = item;
+                list.append(li);
+            })
+            wrapper.append(list)
+        } else {
+            let p = document.createElement('p');
+            p.append(small);
+            p.innerHTML += value;
+            wrapper.append(p);
+        }
+    }
+    return wrapper;
 }
 
 function toggleSections() {
@@ -99,6 +153,7 @@ function toggleSections() {
 function resetTable() {
     tableHead.innerHTML = '';
     tableBody.innerHTML = '';
+    details.innerHTML = '';
 }
 
 backBtn.addEventListener('click', function () {
